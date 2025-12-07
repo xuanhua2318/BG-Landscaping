@@ -5,6 +5,11 @@ def main():
     bed_length = int(input())
     fertile_area = int(input())
     
+    print ("="*5, end="")
+    print ("Falcon Landing", end="")
+    print ("="*5, end="")
+    
+    
     
     
 main()
