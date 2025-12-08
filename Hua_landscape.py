@@ -6,7 +6,7 @@ def main():
         elif (letter == "R"):
             account_type = "Regular"
         elif (letter == "N"):
-            account_type = "Name"
+            account_type = "New"
         return account_type
     
     def getBushCost (account_type, num_Bushes):
@@ -33,17 +33,17 @@ def main():
         cost_per_bag = 11
         area_per_bag = 5000
         num_bag_need = fertile_area / area_per_bag
-        if (fertile_area & area_per_bag != 0):
+        if (fertile_area % area_per_bag != 0):
             num_bag_need = int(num_bag_need)
             num_bag_need += 1
         fertile_cost = num_bag_need * cost_per_bag
         return fertile_cost
          
-    letter = input("P-Preferred, R-Regular, N-New ")
-    num_Bushes = int(input())
-    bed_width = int(input())
-    bed_length = int(input())
-    fertile_area = int(input())
+    letter = input("Please enter your account type: P-Preferred, R-Regular, N-New: ")
+    num_Bushes = int(input("Please enter number of bushes: "))
+    bed_width = int(input("Please enter bed width: "))
+    bed_length = int(input("Please enter bed length: "))
+    fertile_area = int(input("Please enter fertile area: "))
     
     account_type = convertAcct2String (letter)
     bush_cost = getBushCost (account_type, num_Bushes)
@@ -52,11 +52,12 @@ def main():
     final_cost = bush_cost + flower_bed_cost + fertile_cost
     
     
-    print (f"{'='*5}Falcon Landing{'='*5}")
+    print (f"{'='*9}Falcon Landing{'='*9}")
     print (f"Account Type: { account_type}")
-    print (f"{'Bush cost':<15}${bush_cost:<15.2f}" )
-    print (f"{'Flower Bed Cost':<15}${flower_bed_cost:<15.2f}")
-    print (f"{'Fertilizer Cost':<15}${fertile_cost:<15.2f}")
-    print (f"{'Final Cost':<15}${final_cost:<15.2f}")
+    print (f"{'Bush cost':<20}${bush_cost:>10.2f}" )
+    print (f"{'Flower Bed Cost':<20}${flower_bed_cost:>10.2f}")
+    print (f"{'Fertilizer Cost':<20}${fertile_cost:>10.2f}")
+    print (f"{'Final Cost':<20}${final_cost:>10.2f}")
+    print (f"{'='*31}")
     
 main()
